@@ -1247,7 +1247,7 @@
         appendMessage(data.reply, 'bot');
         chatHistory.push({ role: 'bot', text: data.reply });
       } else {
-        appendMessage('Lo siento, hubo un problema al responder. Intenta de nuevo.', 'bot');
+        appendMessage('Error: ' + (data.debug || data.error || 'desconocido'), 'bot');
       }
     } catch (err) {
       typingEl.remove();
