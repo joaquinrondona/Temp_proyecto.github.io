@@ -1244,8 +1244,9 @@
       typingEl.remove();
 
       if (data.reply) {
-        appendMessage(data.reply, 'bot');
-        chatHistory.push({ role: 'bot', text: data.reply });
+        const cleanReply = data.reply.replace(/\*\*/g, '').replace(/\*/g, '');
+        appendMessage(cleanReply, 'bot');
+        chatHistory.push({ role: 'bot', text: cleanReply });
       } else {
         appendMessage('Error: ' + (data.debug || data.error || 'desconocido'), 'bot');
       }
