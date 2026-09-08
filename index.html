@@ -472,6 +472,136 @@
   }
   @media (max-width:880px){.about-panel{grid-template-columns:1fr;padding:32px 26px;}}
 
+  /* ============ TIENDA ============ */
+  .store-panel{
+    background:linear-gradient(135deg, var(--navy-800), var(--navy-900));
+    border:1px solid rgba(255,255,255,0.07);
+    border-radius:var(--radius-lg);
+    padding:48px;
+    display:grid;
+    grid-template-columns:0.9fr 1.1fr;
+    gap:48px;
+    align-items:center;
+  }
+  .store-phone-mini{
+    background:var(--navy-950);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:24px;
+    padding:26px;
+    display:flex;flex-direction:column;align-items:center;gap:14px;
+    box-shadow:0 30px 60px rgba(0,0,0,0.4);
+  }
+  .store-app-icon{
+    width:72px;height:72px;border-radius:18px;
+    background:linear-gradient(135deg,var(--blue),var(--teal));
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--font-display);font-weight:700;font-size:1.6rem;color:var(--navy-950);
+  }
+  .store-stars{color:#ffc94d;font-size:0.9rem;letter-spacing:2px;}
+  .store-info .price-tag{
+    display:inline-block;
+    background:rgba(45,212,191,0.14);
+    color:var(--teal);
+    font-weight:600;
+    font-size:0.85rem;
+    padding:6px 14px;
+    border-radius:100px;
+    margin-bottom:18px;
+  }
+  .store-info h3{font-family:var(--font-display);font-size:1.6rem;margin-bottom:10px;}
+  .store-info p{color:var(--slate);margin-bottom:22px;max-width:460px;}
+  .store-meta{display:flex;gap:28px;margin-bottom:28px;flex-wrap:wrap;}
+  .store-meta div{font-size:0.8rem;color:var(--slate-dim);}
+  .store-meta strong{display:block;color:var(--white);font-size:1.05rem;font-family:var(--font-display);}
+  @media (max-width:880px){.store-panel{grid-template-columns:1fr;padding:36px 26px;text-align:center;}
+    .store-phone-mini{margin:0 auto;} .store-meta{justify-content:center;}}
+
+  /* ============ CHATBOT WIDGET ============ */
+  .chat-toggle{
+    position:fixed;bottom:26px;right:26px;z-index:200;
+    width:60px;height:60px;border-radius:50%;
+    background:linear-gradient(135deg,var(--blue),var(--teal));
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 14px 30px rgba(61,90,254,0.4);
+    transition:transform .2s ease;
+  }
+  .chat-toggle:hover{transform:scale(1.06);}
+  .chat-window{
+    position:fixed;bottom:98px;right:26px;z-index:200;
+    width:340px;max-width:calc(100vw - 40px);
+    height:460px;max-height:calc(100vh - 140px);
+    background:var(--navy-900);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:var(--radius-md);
+    box-shadow:0 30px 60px rgba(0,0,0,0.5);
+    display:flex;flex-direction:column;
+    overflow:hidden;
+    opacity:0;transform:translateY(16px) scale(0.98);
+    pointer-events:none;
+    transition:opacity .2s ease, transform .2s ease;
+  }
+  .chat-window.open{opacity:1;transform:translateY(0) scale(1);pointer-events:auto;}
+  .chat-header{
+    padding:16px 18px;
+    background:var(--navy-800);
+    border-bottom:1px solid rgba(255,255,255,0.06);
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .chat-header-title{display:flex;align-items:center;gap:10px;font-size:0.92rem;font-weight:600;}
+  .chat-dot{width:8px;height:8px;border-radius:50%;background:var(--teal);}
+  .chat-close{color:var(--slate);font-size:1.1rem;line-height:1;padding:4px;}
+  .chat-body{
+    flex:1;overflow-y:auto;
+    padding:16px;
+    display:flex;flex-direction:column;gap:12px;
+  }
+  .chat-msg{
+    max-width:82%;
+    padding:10px 14px;
+    border-radius:14px;
+    font-size:0.88rem;
+    line-height:1.45;
+  }
+  .chat-msg.bot{
+    align-self:flex-start;
+    background:var(--navy-800);
+    border:1px solid rgba(255,255,255,0.06);
+    border-bottom-left-radius:4px;
+  }
+  .chat-msg.user{
+    align-self:flex-end;
+    background:var(--blue);
+    color:var(--white);
+    border-bottom-right-radius:4px;
+  }
+  .chat-msg.typing{color:var(--slate-dim);font-style:italic;}
+  .chat-input-row{
+    display:flex;gap:8px;
+    padding:12px;
+    border-top:1px solid rgba(255,255,255,0.06);
+  }
+  .chat-input-row input{
+    flex:1;
+    background:var(--navy-800);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:100px;
+    padding:10px 16px;
+    color:var(--white);
+    font-size:0.86rem;
+    font-family:inherit;
+  }
+  .chat-input-row input:focus{outline:none;border-color:var(--blue-soft);}
+  .chat-send{
+    width:38px;height:38px;border-radius:50%;
+    background:var(--blue);
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+  }
+  @media (max-width:480px){
+    .chat-window{right:16px;left:16px;width:auto;}
+    .chat-toggle{right:16px;}
+  }
+
   /* ============ CTA FINAL ============ */
   .cta-final{
     background:
@@ -537,6 +667,7 @@
       <a href="#problema">El problema</a>
       <a href="#como-funciona">Cómo funciona</a>
       <a href="#beneficios">Beneficios</a>
+      <a href="#tienda">Tienda</a>
       <a href="#proyecto">Nuestro proyecto</a>
       <a href="#cta-final" class="nav-cta" style="margin-top:6px;">Descubre DigiBalance</a>
     </nav>
@@ -909,6 +1040,37 @@
     </div>
   </section>
 
+  <!-- ============ TIENDA ============ -->
+  <section class="section" id="tienda">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="section-kicker">Tienda</div>
+        <h2>Consigue DigiBalance</h2>
+        <p>La app es completamente gratuita. Descárgala y empieza a conocer tus hábitos digitales hoy mismo.</p>
+      </div>
+
+      <div class="store-panel reveal">
+        <div class="store-phone-mini">
+          <div class="store-app-icon">DB</div>
+          <div>
+            <div class="store-stars">★★★★★</div>
+          </div>
+        </div>
+        <div class="store-info">
+          <span class="price-tag">Gratis</span>
+          <h3>DigiBalance — App móvil</h3>
+          <p>Evalúa tus hábitos digitales, recibe retos personalizados y sigue tu progreso. Sin anuncios, sin recopilar datos innecesarios.</p>
+          <div class="store-meta">
+            <div><strong>Android</strong>Compatible</div>
+            <div><strong>Gratis</strong>Sin compras dentro de la app</div>
+            <div><strong>Privado</strong>Datos guardados en tu dispositivo</div>
+          </div>
+          <a href="#" class="btn btn-primary" id="storeDownloadBtn">Descargar DigiBalance</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ SOBRE EL PROYECTO ============ -->
   <section class="section section-alt" id="proyecto">
     <div class="wrap">
@@ -962,6 +1124,27 @@
   </div>
 </footer>
 
+<!-- ============ WIDGET DE CHAT ============ -->
+<button class="chat-toggle" id="chatToggle" aria-label="Abrir chat de DigiBalance">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M4 5h16v11H7l-3 3V5z" stroke="white" stroke-width="1.8" stroke-linejoin="round"/></svg>
+</button>
+
+<div class="chat-window" id="chatWindow">
+  <div class="chat-header">
+    <div class="chat-header-title"><span class="chat-dot"></span> Asistente DigiBalance</div>
+    <button class="chat-close" id="chatClose" aria-label="Cerrar chat">✕</button>
+  </div>
+  <div class="chat-body" id="chatBody">
+    <div class="chat-msg bot">¡Hola! 👋 Soy el asistente de DigiBalance. Pregúntame lo que quieras sobre la app.</div>
+  </div>
+  <div class="chat-input-row">
+    <input type="text" id="chatInput" placeholder="Escribe tu mensaje..." autocomplete="off">
+    <button class="chat-send" id="chatSend" aria-label="Enviar mensaje">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M3 12l18-8-8 18-2-8-8-2z" stroke="white" stroke-width="1.6" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+</div>
+
 <script>
   // ---- Menú móvil ----
   const navToggle = document.getElementById('navToggle');
@@ -1003,10 +1186,79 @@
   }, { threshold: 0.3 });
   heroObserver.observe(document.querySelector('.phone'));
 
-  // ---- Botón de descarga: aún no hay APK/enlace publicado ----
-  document.getElementById('downloadBtn').addEventListener('click', (e) => {
+  // ---- Botones de descarga: aún no hay APK/enlace publicado ----
+  function handleDownloadClick(e) {
     e.preventDefault();
     alert('Muy pronto podrás descargar DigiBalance aquí. Este botón se conectará al APK, código QR o enlace de descarga cuando estén disponibles.');
+  }
+  document.getElementById('downloadBtn').addEventListener('click', handleDownloadClick);
+  document.getElementById('storeDownloadBtn').addEventListener('click', handleDownloadClick);
+
+  // ---- Chatbot conectado al Worker de Cloudflare (Gemini) ----
+  // IMPORTANTE: reemplaza esta URL por la de tu propio Worker si es distinta.
+  const WORKER_URL = "https://digiibalancechat.76483205.workers.dev";
+
+  const chatToggle = document.getElementById('chatToggle');
+  const chatWindow = document.getElementById('chatWindow');
+  const chatClose = document.getElementById('chatClose');
+  const chatBody = document.getElementById('chatBody');
+  const chatInput = document.getElementById('chatInput');
+  const chatSend = document.getElementById('chatSend');
+
+  let chatHistory = []; // { role: 'user'|'bot', text: '...' }
+
+  function toggleChat() {
+    chatWindow.classList.toggle('open');
+    if (chatWindow.classList.contains('open')) chatInput.focus();
+  }
+  chatToggle.addEventListener('click', toggleChat);
+  chatClose.addEventListener('click', toggleChat);
+
+  function appendMessage(text, sender) {
+    const div = document.createElement('div');
+    div.className = 'chat-msg ' + sender;
+    div.textContent = text;
+    chatBody.appendChild(div);
+    chatBody.scrollTop = chatBody.scrollHeight;
+    return div;
+  }
+
+  async function sendMessage() {
+    const text = chatInput.value.trim();
+    if (!text) return;
+
+    appendMessage(text, 'user');
+    chatHistory.push({ role: 'user', text });
+    chatInput.value = '';
+
+    const typingEl = appendMessage('Escribiendo...', 'bot typing');
+
+    try {
+      const response = await fetch(WORKER_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: text, history: chatHistory.slice(0, -1) }),
+      });
+
+      const data = await response.json();
+      typingEl.remove();
+
+      if (data.reply) {
+        appendMessage(data.reply, 'bot');
+        chatHistory.push({ role: 'bot', text: data.reply });
+      } else {
+        appendMessage('Lo siento, hubo un problema al responder. Intenta de nuevo.', 'bot');
+      }
+    } catch (err) {
+      typingEl.remove();
+      appendMessage('No pude conectarme al asistente en este momento. Revisa tu conexión e intenta de nuevo.', 'bot');
+      console.error('Error en el chat:', err);
+    }
+  }
+
+  chatSend.addEventListener('click', sendMessage);
+  chatInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') sendMessage();
   });
 </script>
 
